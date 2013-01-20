@@ -1,0 +1,26 @@
+else if(var6 == 50) // a mettre dans la fonction RenderBlockAsItem après toutes les conditions else if(var== )
+            {
+              GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
+                TileEntityChaiseRenderHelper.instance.renderTile(par1Block, par2, par3);
+                GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+            }
+
+
+public static boolean renderItemIn3d(int par0)// a mettre a la fin de renderBlock fontion RenderItemIn3d
+    {
+        return par0 == 0 ? true :
+          	(par0 == 31 ? true :
+        		(par0 == 13 ? true :
+        		(par0 == 10 ? true :
+        		(par0 == 11 ? true :
+        		(par0 == 27 ? true :
+        		(par0 == 22 ? true :
+        		(par0 == 21 ? true :
+        		(par0 == 16 ? true :
+        		(par0 == 26 ? true :
+        		(par0 == 32 ? true :
+        		(par0 == 34 ? true :
+        		(par0 == 50 ? true :
+        		par0 == 35))))))))))));
+    }
