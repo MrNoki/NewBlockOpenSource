@@ -1,0 +1,1 @@
+public static final Block chaise = (new BlockChaise(149)).setHardness(1.0F).setResistance(-1.0F).setStepSound(soundWoodFootstep).setBlockName("chaise").setCreativeTab(CreativeTabs.tabDecorations);
