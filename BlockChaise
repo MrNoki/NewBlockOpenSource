@@ -1,0 +1,79 @@
+package net.minecraft.src;
+
+import java.util.Random;
+
+public class BlockChaise extends BlockContainer
+{
+  public BlockChaise(int par1)
+
+    {
+
+        super(par1, Material.wood);
+        blockIndexInTexture = 4;
+
+    }
+	
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
+	
+	public boolean renderAsNormalBlock()
+	{
+		return false;
+	}
+	
+	public int getRenderType()
+	{
+		return 50;
+	}
+	
+	public void onBlockAdded(World par1World, int par2, int par3, int par4)
+    {
+        super.onBlockAdded(par1World, par2, par3, par4);
+        
+    }
+
+    /**
+     * Called when the block is placed in the world.
+     */
+    public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving)
+    {
+        int var6 = par1World.getBlockId(par2, par3, par4 - 1);
+        int var7 = par1World.getBlockId(par2, par3, par4 + 1);
+        int var8 = par1World.getBlockId(par2 - 1, par3, par4);
+        int var9 = par1World.getBlockId(par2 + 1, par3, par4);
+        byte var10 = 0;
+        int var11 = MathHelper.floor_double((double)(par5EntityLiving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+
+        if (var11 == 0)
+        {
+            var10 = 2;
+        }
+
+        if (var11 == 1)
+        {
+            var10 = 5;
+        }
+
+        if (var11 == 2)
+        {
+            var10 = 3;
+        }
+
+        if (var11 == 3)
+        {
+            var10 = 4;
+        }
+
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, var10);
+        
+        // vu qu'un block complexe à souvent un sens, on va en profiter pour lui attribuer des metaData à la pose qui definiront son orientation.
+    }
+
+	@Override
+	public TileEntity createNewTileEntity(World var1) {
+		// TODO Auto-generated method stub
+		return new TileEntityChaise();
+	}
+}
